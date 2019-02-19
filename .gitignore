@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-pareihein.txt
+logs
+
 
 # testing
 /coverage
@@ -22,3 +23,6 @@ pareihein.txt
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+pareihein.txt
