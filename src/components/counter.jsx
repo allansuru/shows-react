@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 	state = {
-		count: 1,
+		count: 0,
 		imageUrl: 'https://picsum.photos/g/200/300',
 		tags: [ 'Allan', 'Ronaldo', 'Pelé' ],
 		address: {
@@ -10,15 +10,30 @@ class Counter extends Component {
 		}
 	};
 
+	// constructor() {
+	// 	super();
+	// 	this.handleIncrement = this.handleIncrement.bind(this);
+	// }
+
+	handleIncrement = () => {
+		console.log('click: ', this);
+		// this.state.count++;
+		this.setState({
+			count: this.state.count + 1
+		});
+	};
+
 	render() {
 		return (
 			<div>
-				{/* <span className={this.setColorBadge()}>{this.formatCount()}</span> */}
-				{/* <div class="alert alert-dark" role="alert">
-                    {this.state.address.street}
-                </div> */}
-				{/* <button className="btn btn-secondary btn-sm">Increment</button> */}
-				{this.state.tags.length === 0 && <p className="alert alert-primary">Vazio</p>}
+				<span className={this.setColorBadge()}>{this.formatCount()}</span>
+				<div className="alert alert-dark" role="alert">
+					{this.state.address.street}
+				</div>
+				<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
+					Increment
+				</button>
+				{/* {this.state.tags.length === 0 && <p className="alert alert-primary">Vazio</p>} */}
 				{this.renderTags()}
 			</div>
 		);
