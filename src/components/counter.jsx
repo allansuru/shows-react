@@ -15,8 +15,8 @@ class Counter extends Component {
 	// 	this.handleIncrement = this.handleIncrement.bind(this);
 	// }
 
-	handleIncrement = () => {
-		console.log('click: ', this);
+	handleIncrement = (product) => {
+		console.log('click: ', this, product);
 		// this.state.count++;
 		this.setState({
 			count: this.state.count + 1
@@ -30,11 +30,16 @@ class Counter extends Component {
 				<div className="alert alert-dark" role="alert">
 					{this.state.address.street}
 				</div>
-				<button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">
+				<button
+					onClick={() => {
+						this.handleIncrement({ id: 1 });
+					}}
+					className="btn btn-secondary btn-sm"
+				>
 					Increment
 				</button>
 				{/* {this.state.tags.length === 0 && <p className="alert alert-primary">Vazio</p>} */}
-				{this.renderTags()}
+				{/* {this.renderTags()} */}
 			</div>
 		);
 	}
