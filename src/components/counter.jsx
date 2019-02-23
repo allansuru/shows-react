@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Counter extends Component {
 	state = {
-		count: 0,
+		count: this.props.counter.value,
 		imageUrl: 'https://picsum.photos/g/200/300',
 		tags: [ 'Allan', 'Ronaldo', 'Pelé' ],
 		address: {
@@ -29,12 +29,20 @@ class Counter extends Component {
 		});
 	};
 
+	onDelete = () => {
+		console.log('on Deleteee', this.props.onDelete);
+	};
+
 	render() {
+		console.log('props: ', this.props);
+		console.log('id: ', this.props.counter.id);
+		// console.log('props children: ', this.props.children);
+		// console.log('State: ', this.state);
 		return (
 			<div>
 				<span className={this.setColorBadge()}>{this.formatCount()}</span>
 				<div className="alert alert-dark" role="alert">
-					{this.state.address.street}
+					{this.props.children}
 				</div>
 				<button
 					onClick={() => {
@@ -51,6 +59,12 @@ class Counter extends Component {
 					className="btn btn-secondary btn-sm ml-2"
 				>
 					decrement
+				</button>
+				<button
+					onClick={() => this.props.onDelete(this.props.counter.id)}
+					className="btn btn-danger btn-sm ml-2"
+				>
+					delete
 				</button>
 				{/* {this.state.tags.length === 0 && <p className="alert alert-primary">Vazio</p>} */}
 				{/* {this.renderTags()} */}
