@@ -23,6 +23,12 @@ class Counter extends Component {
 		});
 	};
 
+	handleDecrement = () => {
+		this.setState({
+			count: this.state.count - 1
+		});
+	};
+
 	render() {
 		return (
 			<div>
@@ -37,6 +43,14 @@ class Counter extends Component {
 					className="btn btn-secondary btn-sm"
 				>
 					Increment
+				</button>
+				<button
+					onClick={() => {
+						this.handleDecrement();
+					}}
+					className="btn btn-secondary btn-sm ml-2"
+				>
+					decrement
 				</button>
 				{/* {this.state.tags.length === 0 && <p className="alert alert-primary">Vazio</p>} */}
 				{/* {this.renderTags()} */}
