@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // Stateless Functional Component
 
-const NavBar = (props) => {
+const NavBar = ({ totalCounters }) => {
+	console.log('NavBar - Rendered');
 	return (
 		<nav className="navbar navbar-light bg-light">
 			<span className="navbar-brand mb-0 h1">
-				Navbar <span className="badge pill badge-secondary">{props.totalCounters}</span>
+				Navbar <span className="badge pill badge-secondary">{totalCounters}</span>
 			</span>
 		</nav>
 	);
